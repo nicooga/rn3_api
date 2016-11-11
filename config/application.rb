@@ -18,13 +18,11 @@ Bundler.require(*Rails.groups)
 
 module Rn3
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-
-    # Only loads a smaller set of middleware suitable for API only apps.
-    # Middleware like session, flash, cookies can be added back manually.
-    # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.autoload_paths << Rails.root.join('lib')
+    routes.default_url_options = {
+      host:     ENV.fetch('APP_HOST'),
+      protocol: ENV.fetch('APP_PROTOCOL')
+    }
   end
 end
