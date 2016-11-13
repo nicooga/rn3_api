@@ -7,6 +7,7 @@ gem 'pry-rails'
 gem 'mercadolibre'
 gem 'dotenv-rails'
 gem 'jsonapi-resources'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platform: :mri
